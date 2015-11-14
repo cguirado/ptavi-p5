@@ -93,10 +93,15 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 11. Una vez conectado, estudia el intercambio de tramas.
  ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+        Utilizan protocolos RTP, para transmision multimedia en tiempo real  y H-261 para el video 
  ** ¿Cuál es el tamaño de paquete de los mismos?
+        Paquetes RTP son de 214 bytes y los de H-261 es mas variable (1028,1073,1037,1077)bytes
  ** ¿Se utilizan bits de padding?
+        No, en el campo padding de los mensajes nos sale como False
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
+        Vemos que se envian cada 160 microseg?
  ** ¿Cuántos bits/segundo estamos enviando?
+        
 
 
 
