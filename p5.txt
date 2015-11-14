@@ -27,7 +27,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 4. Observa por encima el flujo de tramas en el menú de Statistics en IO Graphs. La captura que estamos viendo incluye desde la inicialización (registro) de la aplicación hasta su finalización, con una llamada entremedias.
  ** Filtra por sip para conocer cuándo se envían paquetes SIP. ¿En qué segundos tienen lugar esos envíos?
-        Más o menos se envian en franjas de tiempo de los segundos 6 al 8, del 13 al 16, del 16 al 18, del 37 al 40 y por último del 54 al 57  
+        Más o menos se envian en franjas de tiempo de los segundos 6 al 8, del 13 al 16, del 16 al 18, del 37 al 40 y por último del 54 al 57
  ** Y los paquetes con RTP, ¿cuándo se envían?
         RTP se envian en la franja de tiempo de los segundos 16 al 40 mas o menos.
 
@@ -59,7 +59,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 
 8. La trama 46 es la primera trama SIP. En un entorno como el de Internet, lo habitual es desconocer la dirección IP de la otra parte al realizar una llamada. Por eso, todo usuario registra su localización en un servidor Registrar. El Registrar guarda información sobre los usuarios en un servidor de localización que puede ser utilizado para localizar usuarios.
- ** ¿Qué dirección IP tiene el servidor Registrar? 
+ ** ¿Qué dirección IP tiene el servidor Registrar?
         86.64.162.35
  ** ¿A qué puerto (del servidor Registrar) se envían los paquetes SIP?
         5060
@@ -77,15 +77,18 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Cómo sabemos si el registro se ha realizado correctamente o no?
         Nos manda una trama con "Status: 401 Unauthorized " no estamos autorizados
  ** ¿Podrías identificar las diferencias entre el primer intento y el segundo de registro? (fíjate en el tamaño de los paquetes y mira a qué se debe el cambio)
-        Debemos mandarle mas información para asegurar la conexion en Authorization con informacion de Authorization scheme:Disgestive, el Nonce Value , Authenticacion URI, algorithm,
+        Debemos mandarle mas información para asegurar la conexion en Authorization con informacion de Authorization scheme:Disgestive, el Nonce Value , Authenticacion URI, algorithm, Digest AUthentication Response.
  ** ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica las unidades.
-
-
+        3600 segundos
 10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
  ** ¿Puede verse el nombre del que efectúa la llamada, así como su dirección SIP?
+        Si puede verse el nombre. Nombre= Gregorio Robles, direccion SIP= grex@ekiga.net
  ** ¿Qué es lo que contiene el cuerpo de la trama? ¿En qué formato/protocolo está?
+        El cuerpo de la trama contiene un mensaje SDP, enta dentro de un protocolo SIP
  ** ¿Tiene éxito el primer intento? ¿Cómo lo sabes?
+        No tiene exito el intento ya que recibimos un 407 Proxy Authentication Required 
  ** ¿En qué se diferencia el segundo INVITE más abajo del primero? ¿A qué crees que se debe esto?
+        El segundo introduce mas informacion con un Proxy-Authorization, como Digest realm, nonce. Que se lo ha pedido anteriormente el proxy para que el invite tuviera exito     
 
 
 11. Una vez conectado, estudia el intercambio de tramas.
