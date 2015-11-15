@@ -134,20 +134,25 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
  ** ¿Cuánto dura la conversación?
+        Empezo 14.426793  y termino 39.229683 por tanto duro 24.80289 segundos
  ** ¿Cuáles son sus SSRC? ¿Por qué hay varios SSRCs? ¿Hay CSRCs?
-
+        
 
 15. Identifica la trama donde se finaliza la conversación.
  ** ¿Qué método SIP se utiliza?
+        Sip, utiliza el metodo BYE
  ** ¿En qué trama(s)?
+        Las tramas son (924,925,927,933)
  ** ¿Por qué crees que se envía varias veces?
-
+        Porque el 200 ok no le ha llegado.
 
 16. Finalmente, se cierra la aplicación de VozIP.
  ** ¿Por qué aparece una instrucción SIP del tipo REGISTER?
+        Porque la conexion se cierra con un REGISTER con el campo Expires a 0
  ** ¿En qué trama sucede esto?
+        En la trama 950, en el primer REGISTER que encontramos, tras toda la conversación
  ** ¿En qué se diferencia con la instrucción que se utilizó con anterioridad (al principio de la sesión)?
-
+        En el Expire que en los primeros Register cuando queriamos entrar a la conversacion iban con 3600 y ahora esta a 0 para terminar la conversacion.
 
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
