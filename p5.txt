@@ -109,19 +109,28 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 12. Vamos a ver más a fondo el intercambio RTP. En Telephony hay una opción RTP. Empecemos mirando los flujos RTP.
  ** ¿Cuántos flujos hay? ¿por qué?
+        Hay dos flujos, para dos puertos diferentes 5014, uno sera para video y 5010, otro para audio.
  ** ¿Cuántos paquetes se pierden?
+        Ningun paquete se ha perdido
  ** ¿Cuál es el valor máximo del delta? ¿Y qué es lo que significa el valor de delta?
+        El valor de la delta es de 1290.48ms dirigido al puerto (5014). Es el máximo retardo de los paquetes
  ** ¿Cuáles son los valores de jitter (medio y máximo)? ¿Qué quiere decir eso? ¿Estamos ante una conversación de calidad?
-
+        Para el puerto (5014) el valor del jitter es de 183.10 Max, 153.24 Mean y para el puerto (5010) 119.64Max y 42.50Mean
+        No es una conversacion de calidad ya que los valores jitter tiene demasiada variación y la diferencia de retardos es mucha
 
 13. Elige un paquete RTP de audio. Analiza el flujo de audio en Telephony -> RTP -> Stream Analysis.
  ** ¿Cuánto valen el delta y el jitter para el primer paquete que ha llegado?
+        Delta y jitter valen 0
  ** ¿Podemos saber si éste es el primer paquete que nos han enviado?
+        
  ** Los valores de jitter son menores de 10ms hasta un paquete dado. ¿Cuál?
+        Hasta el paquete 247.
  ** ¿A qué se debe el cambio tan brusco del jitter?
+        Supongo que se debe a que la delta se ingrementa mucho, por tanto el retardo es mayor y el jitter aumenta
  ** ¿Es comparable este cambio con el tiempo desde la recepción del paquete anterior? ¿Por qué?
+        Si ya que como he dicho antes el jitter y la delta estan relacionados y la delta es el retardo de los paquetes
  ** ¿Cuál es la dependencia entre el tiempo transcurrido desde el paquete anterior y el valor de jitter?
-
+        
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
  ** ¿Cuánto dura la conversación?
