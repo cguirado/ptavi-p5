@@ -182,7 +182,7 @@ Captura una sesión SIP de una conversación con el número SIP sip:9999@qxip.ne
         El valor máximo de la delta 30.39ms y valores medio de jitter es 3.49 y el maximo 5.01 en el flujo uno para el puerto 30700
       
  ** ¿Podrías reproducir la conversación desde Wireshark? ¿Cómo? Comprueba que poniendo un valor demasiado pequeño para el buffer de jitter, la conversación puede no tener la calidad necesaria.
-       Si podiamos reproducir la conversación
+       Si podiamos reproducir la conversación.
  ** ¿Sabrías decir qué tipo de servicio ofrece sip:9999@qxip.net?
         Nos ofrece un servicio de música.
 
