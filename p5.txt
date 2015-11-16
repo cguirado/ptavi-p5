@@ -80,6 +80,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
         Debemos mandarle mas información para asegurar la conexion en Authorization con informacion de Authorization scheme:Disgestive, el Nonce Value , Authenticacion URI, algorithm, Digest AUthentication Response.
  ** ¿Cuánto es el valor del tiempo de expiración de la sesión? Indica las unidades.
         3600 segundos
+
 10. Una vez registrados, podemos efectuar una llamada. Vamos a probar con el servicio de eco de Ekiga que nos permite comprobar si nos hemos conectado correctamente. El servicio de eco tiene la dirección sip:500@ekiga.net. Veamos el INVITE de cerca.
  ** ¿Puede verse el nombre del que efectúa la llamada, así como su dirección SIP?
         Si puede verse el nombre. Nombre= Gregorio Robles, direccion SIP= grex@ekiga.net
@@ -99,11 +100,9 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Se utilizan bits de padding?
         No, en el campo padding de los mensajes nos sale como False
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
-        Vemos que se envian cada 160 microseg?
+        Vemos que se envian cada 20 microseg
  ** ¿Cuántos bits/segundo estamos enviando?
-        
-
-
+        214 bytes le quitamos las cabeceras 54bytes,tenemos 160bytes 8000bytes por segundo por tanto 64000bits/seg
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
 
@@ -122,7 +121,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Cuánto valen el delta y el jitter para el primer paquete que ha llegado?
         Delta y jitter valen 0
  ** ¿Podemos saber si éste es el primer paquete que nos han enviado?
-        
+        En ekiga si podemos saber cual es el primer paquete enviado ya que pone una marca. Si no fuera con ekiga no lo podriamos saber.
  ** Los valores de jitter son menores de 10ms hasta un paquete dado. ¿Cuál?
         Hasta el paquete 247.
  ** ¿A qué se debe el cambio tan brusco del jitter?
@@ -130,13 +129,13 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Es comparable este cambio con el tiempo desde la recepción del paquete anterior? ¿Por qué?
         Si ya que como he dicho antes el jitter y la delta estan relacionados y la delta es el retardo de los paquetes
  ** ¿Cuál es la dependencia entre el tiempo transcurrido desde el paquete anterior y el valor de jitter?
-        
+        La dependencia eltre el valor anterior y el jitter no es exactamente lo que tarda sino que es un poco menos pero, es como si el jitter tiene memoria que guarda los jitter anteriores y lo va sumando...
 
 14. En Telephony selecciona el menú VoIP calls. Verás que se lista la llamada de voz IP capturada en una ventana emergente. Selecciona esa llamada y pulsa el botón Graph.
  ** ¿Cuánto dura la conversación?
         Empezo 14.426793  y termino 39.229683 por tanto duro 24.80289 segundos
  ** ¿Cuáles son sus SSRC? ¿Por qué hay varios SSRCs? ¿Hay CSRCs?
-        
+        Tiene dos SSRC según sea de video o audio son diferentes y no encontramos ningun CSRCw
 
 15. Identifica la trama donde se finaliza la conversación.
  ** ¿Qué método SIP se utiliza?
