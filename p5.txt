@@ -51,7 +51,7 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
  ** ¿Qué devuelve el servidor?
         Devuelve ip publica de 83.36.48.212
  ** Si lanzamos el navegador web, por ejemplo, Mozilla Firefox, y vamos a la misma URL, ¿qué recibimos? ¿Qué es, entonces, lo que está respondiendo el servidor?
-
+        Recibimos 193.147.49.108. Nos da la ip publica el Servidor
 
 7. Hasta la trama 45 se puede observar una secuencia de tramas del protocolo STUN.
  ** ¿Por qué crees que se hace uso de este protocolo en esta captura? Busca en la Wikipedia.
@@ -93,16 +93,16 @@ Se ha capturado una sesión SIP (archivo sip.cap.gz), que se puede abrir con Wir
 
 
 11. Una vez conectado, estudia el intercambio de tramas.
- ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirven estos protocolos?
+ ** ¿Qué protocolo(s) se utiliza(n)? ¿Para qué sirve1037n estos protocolos?
         Utilizan protocolos RTP, para transmision multimedia en tiempo real  y H-261 para el video 
  ** ¿Cuál es el tamaño de paquete de los mismos?
-        Paquetes RTP son de 214 bytes y los de H-261 es mas variable (1028,1073,1037,1077)bytes
+        Paquetes RTP son de 214 bytes y los de H-261 es mas variable (1028,1073,,1077)bytes
  ** ¿Se utilizan bits de padding?
         No, en el campo padding de los mensajes nos sale como False
  ** ¿Cuál es la periodicidad de los paquetes que se envían?
         Vemos que se envian cada 20 microseg
  ** ¿Cuántos bits/segundo estamos enviando?
-        214 bytes le quitamos las cabeceras 54bytes,tenemos 160bytes 8000bytes por segundo por tanto 64000bits/seg
+        214 bytes le quitamos las cabeceras 54bytes,tenemos 160bytes, 8000bytes por segundo por tanto 64000bits/seg
 
 [Al terminar el ejercicio es recomendable hacer commit de los ficheros modificados]
 
@@ -182,7 +182,7 @@ Captura una sesión SIP de una conversación con el número SIP sip:9999@qxip.ne
         El valor máximo de la delta 30.39ms y valores medio de jitter es 3.49 y el maximo 5.01 en el flujo uno para el puerto 30700
       
  ** ¿Podrías reproducir la conversación desde Wireshark? ¿Cómo? Comprueba que poniendo un valor demasiado pequeño para el buffer de jitter, la conversación puede no tener la calidad necesaria.
-       Si podiamos reproducir la conversación.
+       Si podiamos reproducir la conversación. Entramos en telephony->RTP->show all Streams->selecionamos el flujo->Analyze-> Player
  ** ¿Sabrías decir qué tipo de servicio ofrece sip:9999@qxip.net?
         Nos ofrece un servicio de música.
 
